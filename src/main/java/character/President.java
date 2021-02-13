@@ -1,4 +1,4 @@
-package island;
+package character;
 
 public class President {
 }
