@@ -1,5 +1,7 @@
 package character;
 
+import game.Game;
+
 public class Faction {
     private int memberNumber;
     private int satisfaction;
@@ -8,4 +10,5 @@ public class Faction {
         this.memberNumber = memberNumber;
         this.satisfaction = satisfaction;
     }
+
 }
