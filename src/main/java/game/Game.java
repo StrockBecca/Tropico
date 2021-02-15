@@ -17,7 +17,7 @@ public class Game {
     private Religious religious;
     private Industry industry;
     private Agriculture agriculture;
-
+    private static Initialisation initialize = new Initialisation();
     public Game(Difficulty difficulty, Finances finance, Capitalist capitalist, Communist communist, Environmentalist environmentalist,
                 Liberals liberals, Loyalist loyalist, Militarist militarist, Nationalist nationalist, Religious religious,
                 Industry industry, Agriculture agriculture){
@@ -35,39 +35,11 @@ public class Game {
         this.agriculture = agriculture;
     }
 
-    public void main(String[] args){
-        Game game = Initialisation.gameInitialisation();
+
+    public static void main(String[] args){
+        Difficulty difficulty = initialize.getDifficulty();
+        Game game = initialize.gameInitialisation( difficulty );
     }
 
-    public void setCapitalist(Capitalist capitalist) {
-        this.capitalist = capitalist;
-    }
 
-    public void setCommunist(Communist communist) {
-        this.communist = communist;
-    }
-
-    public void setEnvironmentalist(Environmentalist environmentalist) {
-        this.environmentalist = environmentalist;
-    }
-
-    public void setLiberals(Liberals liberals) {
-        this.liberals = liberals;
-    }
-
-    public void setLoyalist(Loyalist loyalist) {
-        this.loyalist = loyalist;
-    }
-
-    public void setMilitarist(Militarist militarist) {
-        this.militarist = militarist;
-    }
-
-    public void setNationalist(Nationalist nationalist) {
-        this.nationalist = nationalist;
-    }
-
-    public void setReligious(Religious religious) {
-        this.religious = religious;
-    }
 }

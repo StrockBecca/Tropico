@@ -1,3 +1,6 @@
-island/President.class
+game/Initialisation.class
+events/Bribe.class
+game/Finances.class
 events/Event.class
+game/Difficulty.class
 events/MenuEvent.class

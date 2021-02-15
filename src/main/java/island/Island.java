@@ -1,15 +1,16 @@
 package island;
 
 import events.Event;
+import game.Difficulty;
+import game.Game;
+import game.Initialisation;
 
 public class Island {
     private double size;
-
+    private static Initialisation initialize = new Initialisation();
     public Island(double size){
         this.size = size;
     }
-    public static void main(String[] args) {
-        //Event event = new Event();
-        //event.lockdown();
-    }
+
 }
+
