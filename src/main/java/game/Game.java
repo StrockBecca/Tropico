@@ -1,8 +1,11 @@
 package game;
 
 import character.*;
+import events.Event;
 import island.Agriculture;
 import island.Industry;
+
+import java.io.FileNotFoundException;
 
 public class Game {
     private Difficulty difficulty;
@@ -36,10 +39,20 @@ public class Game {
     }
 
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws FileNotFoundException {
+        int season = 0;
+        int satisfaction = 0;
+        President president = new President();
         Difficulty difficulty = initialize.getDifficulty();
         Game game = initialize.gameInitialisation( difficulty );
-    }
+        Event[] events = Event.getEventByDifficulty( difficulty );
+        while ( satisfaction > difficulty.getMinSatisfaction() ){
+                satisfaction = president.doEvent( game, satisfaction, events );
+            if ( season%4 == 0 && season != 0 ){
 
+            }
+            season += 1;
+        }
+    }
 
 }

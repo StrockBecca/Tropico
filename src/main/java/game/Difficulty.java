@@ -12,6 +12,14 @@ public class Difficulty {
         this.minSatisfaction = minSatisfaction;
     }
 
+    public String getLevel() {
+        return level;
+    }
+
+    public int getMinSatisfaction() {
+        return minSatisfaction;
+    }
+
     public static Difficulty selectDifficuty(){
         Scanner input = new Scanner(System.in);
         System.out.print("Avec quelle difficulté voulez-vous jouer ?\n 1 - Facile\n 2 - Normal\n 3 - Difficile\n");
