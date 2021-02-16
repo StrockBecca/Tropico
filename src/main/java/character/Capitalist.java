@@ -6,4 +6,5 @@ public class Capitalist extends Faction {
 
         super(memberNumber, satisfaction);
     }
+
 }

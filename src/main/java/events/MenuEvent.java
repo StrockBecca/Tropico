@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class MenuEvent {
     private String[] choices;
     public MenuEvent( String[] choices ){
+
         this.choices = choices;
     }
 
@@ -27,6 +28,6 @@ public class MenuEvent {
                 System.out.println( String.format("Merci de choisir une option entre 1 et %d",choices.length) );
             }
         }
-        return choice-1;
+        return choice;
     }
 }

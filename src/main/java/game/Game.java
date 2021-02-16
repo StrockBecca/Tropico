@@ -38,21 +38,79 @@ public class Game {
         this.agriculture = agriculture;
     }
 
+    public Finances getFinance() {
+        return finance;
+    }
+
+    public Capitalist getCapitalist() {
+        return capitalist;
+    }
+
+    public Communist getCommunist() {
+        return communist;
+    }
+
+    public Environmentalist getEnvironmentalist() {
+        return environmentalist;
+    }
+
+    public Liberals getLiberals() {
+        return liberals;
+    }
+
+    public Loyalist getLoyalist() {
+        return loyalist;
+    }
+
+    public Militarist getMilitarist() {
+        return militarist;
+    }
+
+    public Nationalist getNationalist() {
+        return nationalist;
+    }
+
+    public Religious getReligious() {
+        return religious;
+    }
+
+    public Industry getIndustry() {
+        return industry;
+    }
+
+    public Agriculture getAgriculture() {
+        return agriculture;
+    }
 
     public static void main(String[] args) throws FileNotFoundException {
         int season = 0;
-        int satisfaction = 0;
         President president = new President();
         Difficulty difficulty = initialize.getDifficulty();
         Game game = initialize.gameInitialisation( difficulty );
         Event[] events = Event.getEventByDifficulty( difficulty );
+        float satisfaction = getTotalSatisfaction(game);
         while ( satisfaction > difficulty.getMinSatisfaction() ){
-                satisfaction = president.doEvent( game, satisfaction, events );
+                game = president.doEvent( game, events );
+                satisfaction = getTotalSatisfaction(game);
             if ( season%4 == 0 && season != 0 ){
-
+                System.out.println( String.format("Saison: %d",season) );
             }
             season += 1;
         }
+    }
+
+    public static float getTotalSatisfaction(Game game){
+        float numerator = game.capitalist.getFactionSatisfaction()+game.communist.getFactionSatisfaction()+
+                game.environmentalist.getFactionSatisfaction()+game.liberals.getFactionSatisfaction()+
+                game.religious.getFactionSatisfaction()+game.militarist.getFactionSatisfaction()+
+                game.nationalist.getFactionSatisfaction()+game.loyalist.getFactionSatisfaction();
+
+        float denominator = game.capitalist.getMemberNumber() + game.communist.getMemberNumber()+
+                game.environmentalist.getMemberNumber() + game.liberals.getMemberNumber() +
+                game.religious.getMemberNumber() + game.militarist.getMemberNumber() +
+                game.nationalist.getMemberNumber()+ game.loyalist.getMemberNumber();
+
+        return numerator/denominator;
     }
 
 }
