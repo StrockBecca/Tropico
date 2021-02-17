@@ -83,17 +83,18 @@ public class Game {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        int season = 0;
+        int season = 1;
         President president = new President();
         Difficulty difficulty = initialize.getDifficulty();
         Game game = initialize.gameInitialisation( difficulty );
-        Event[] events = Event.getEventByDifficulty( difficulty );
         float satisfaction = getTotalSatisfaction(game);
         while ( satisfaction > difficulty.getMinSatisfaction() ){
-                game = president.doEvent( game, events );
+                Event[] events = Event.getEventByDifficulty( difficulty, season );
+                game = president.doEvent( game, events, season );
                 satisfaction = getTotalSatisfaction(game);
-            if ( season%4 == 0 && season != 0 ){
+            if ( season%4 == 0 ){
                 System.out.println( String.format("Saison: %d",season) );
+                season = 0;
             }
             season += 1;
         }

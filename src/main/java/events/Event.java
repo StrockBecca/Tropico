@@ -66,34 +66,53 @@ public class Event {
                 moneyImpact, industryImpact, agricultureImpact);
     }
 
-    public static Event[] loadEvents(File file) throws FileNotFoundException {
+    public static String parseSeason(int season){
+        if( season == 1 ){
+            return "W";
+        }
+        if( season == 2 ){
+            return "Sp";
+        }
+        if( season == 3 ){
+            return "Su";
+        }
+        return "A";
+    }
+
+    public static Event[] loadEvents(File file, String season ) throws FileNotFoundException {
         Scanner scanner = new Scanner(file);
-        int lines = countLines( file );
+        int allLines = countLines(file);
+        int lines = countLines( file,season );
         Event[] events = new Event[lines];
-        for( int i = 0; i < lines; i++ ){
-            events[i] = eventFromFile(scanner.nextLine() );
+        int count = 0;
+        for( int i = 0; i < allLines; i++ ){
+            String line = scanner.nextLine();
+            String[] fields = line.split("\\|");
+            if( fields[0].contains(season) || fields[0].equals("all") ){
+                events[count] = eventFromFile( line );
+                count += 1;
+            }
         }
         return events;
     }
 
-    public static Event[] getEventByDifficulty( Difficulty difficulty ) throws FileNotFoundException {
+    public static Event[] getEventByDifficulty( Difficulty difficulty, int season ) throws FileNotFoundException {
 
         if ( difficulty.getLevel().equals("Facile") ){
             File easy = new File("EasyEvent.txt");
-            return loadEvents(easy);
+            return loadEvents(easy, parseSeason(season) );
         }
         if( difficulty.getLevel().equals("Normal") ){
             File medium = new File( "MediumEvent.txt" );
-            return loadEvents( medium );
+            return loadEvents( medium,parseSeason(season) );
         }
         if( difficulty.getLevel().equals("Difficile") ){
             File hard = new File( "HardEvent.txt");
-            return loadEvents( hard );
+            return loadEvents( hard,parseSeason(season) );
         }
 
         return new Event[0];
     }
-
     public static int countLines( File file ) {
         int lines = 0;
         try {
@@ -101,6 +120,22 @@ public class Event {
             while( countFile.hasNext() ) {
                 lines+=1;
                 countFile.nextLine();
+            }
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return lines;
+    }
+    public static int countLines( File file, String season ) {
+        int lines = 0;
+        try {
+            Scanner countFile = new Scanner(file);
+            while( countFile.hasNext() ) {
+                String[] fields = countFile.nextLine().split("\\|");
+                if( fields[0].contains(season) || fields[0].equals("all") ){
+                    lines+=1;
+                }
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();

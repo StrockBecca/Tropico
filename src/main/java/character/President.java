@@ -11,16 +11,31 @@ public class President {
     private String[] choices = { "oui", "non" };
     private Scanner scanner;
 
-    public Game doEvent( Game game, Event[] events ){
+    public void printSeason( int season ){
+        if( season == 1 ){
+            System.out.print("HIVER\n");
+        }
+        if( season == 2 ){
+            System.out.print("PRINTEMPS\n");
+        }
+        if( season == 3 ){
+            System.out.print("ETE\n");
+        }
+        if( season == 4 ){
+            System.out.print("AUTOMNE\n");
+        }
+    }
+    public Game doEvent( Game game, Event[] events, int season ){
         Random rand = new Random();
         MenuEvent displayEvent = new MenuEvent(choices);
         int event = rand.nextInt( events.length ) + 1;
+        printSeason( season );
         System.out.println( String.format("%s\n%s", events[event-1].getName(),events[event-1].getDescription()));
         int choice = displayEvent.display(scanner);
 
         if( choice == 1 ){
             game.getCapitalist().setSatisfaction((int) (game.getCapitalist().getSatisfaction() + events[event - 1].getCapitalistImpact()));
-            game.getCommunist().setSatisfaction((int) (game.getCommunist().getSatisfaction() + events[event - 1].getCapitalistImpact()));
+            game.getCommunist().setSatisfaction((int) (game.getCommunist().getSatisfaction() + events[event - 1].getCommunistImpact()));
             game.getEnvironmentalist().setSatisfaction((int) (game.getEnvironmentalist().getSatisfaction() + events[event - 1].getEnvironmentalistImpact()));
             game.getLiberals().setSatisfaction((int) (game.getLiberals().getSatisfaction() + events[event - 1].getLiberalImpact()));
             game.getLoyalist().setSatisfaction((int) (game.getLoyalist().getSatisfaction() + events[event - 1].getLoyalistImpact()));
