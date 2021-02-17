@@ -7,7 +7,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Event {
-    private String season;
+    private final String season;
     private String name;
     private String description;
     private float capitalistImpact;
@@ -113,6 +113,7 @@ public class Event {
 
         return new Event[0];
     }
+
     public static int countLines( File file ) {
         int lines = 0;
         try {
@@ -127,6 +128,7 @@ public class Event {
         }
         return lines;
     }
+
     public static int countLines( File file, String season ) {
         int lines = 0;
         try {

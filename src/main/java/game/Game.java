@@ -92,6 +92,7 @@ public class Game {
                 Event[] events = Event.getEventByDifficulty( difficulty, season );
                 game = president.doEvent( game, events, season );
                 satisfaction = getTotalSatisfaction(game);
+                System.out.print("Satisfaction: "+satisfaction + "\n");
             if ( season%4 == 0 ){
                 System.out.println( String.format("Saison: %d",season) );
                 season = 0;

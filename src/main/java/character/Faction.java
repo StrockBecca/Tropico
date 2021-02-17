@@ -24,10 +24,12 @@ public class Faction {
     }
 
     public int getFactionSatisfaction(){
+
         return satisfaction*memberNumber;
     }
+
     public void setSatisfaction(int satisfaction) {
-        if( this.satisfaction == 0 ){
+        if( this.satisfaction == 0 || satisfaction < 0 ){
             satisfaction = 0;
         }
         this.satisfaction = satisfaction;
