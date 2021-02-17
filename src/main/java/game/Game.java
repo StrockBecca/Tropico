@@ -1,6 +1,7 @@
 package game;
 
 import character.*;
+import events.Bribe;
 import events.Event;
 import island.Agriculture;
 import island.Industry;
@@ -88,6 +89,10 @@ public class Game {
         Difficulty difficulty = initialize.getDifficulty();
         Game game = initialize.gameInitialisation( difficulty );
         float satisfaction = getTotalSatisfaction(game);
+        game.getFinance().setAmount(250);
+        Bribe bribe = new Bribe();
+        bribe.callBribe(game);
+        /*
         while ( satisfaction > difficulty.getMinSatisfaction() ){
                 Event[] events = Event.getEventByDifficulty( difficulty, season );
                 game = president.doEvent( game, events, season );
@@ -95,9 +100,14 @@ public class Game {
             if ( season%4 == 0 ){
                 System.out.println( String.format("Saison: %d",season) );
                 season = 0;
+                Bribe bribe = new Bribe();
+                bribe.bribeCapitalist(game);
+                        //callBribe(game);
             }
             season += 1;
         }
+
+         */
     }
 
     public static float getTotalSatisfaction(Game game){
