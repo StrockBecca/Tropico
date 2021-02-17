@@ -1,6 +1,7 @@
 package game;
 
 import character.*;
+import events.Bribe;
 import events.Event;
 import island.Agriculture;
 import island.Industry;
@@ -96,6 +97,8 @@ public class Game {
             if ( season%4 == 0 ){
                 System.out.println( String.format("Saison: %d",season) );
                 season = 0;
+                Bribe bribe = new Bribe();
+                bribe.callBribe(game);
             }
             season += 1;
         }

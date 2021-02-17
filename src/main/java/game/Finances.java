@@ -11,7 +11,7 @@ public class Finances {
         return amount;
     }
 
-    public void setAmount(float amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 }
