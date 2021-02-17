@@ -3,11 +3,9 @@ package island;
 import events.Event;
 import game.Difficulty;
 import game.Game;
-import game.Initialisation;
 
 public class Island {
     private double size;
-    private static Initialisation initialize = new Initialisation();
     public Island(double size){
 
         this.size = size;
@@ -18,7 +16,11 @@ public class Island {
     }
 
     public void setSize(double size) {
+        if( size <= 0 ){
+            size = 0;
+        }
         this.size = size;
     }
+
 }
 
