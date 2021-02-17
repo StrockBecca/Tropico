@@ -4,6 +4,7 @@ import character.*;
 import events.Event;
 import island.Agriculture;
 import island.Industry;
+import island.Market;
 
 import java.io.FileNotFoundException;
 
@@ -21,6 +22,7 @@ public class Game {
     private Industry industry;
     private Agriculture agriculture;
     private static Initialisation initialize = new Initialisation();
+    private static Market market = new Market();
     public Game(Difficulty difficulty, Finances finance, Capitalist capitalist, Communist communist, Environmentalist environmentalist,
                 Liberals liberals, Loyalist loyalist, Militarist militarist, Nationalist nationalist, Religious religious,
                 Industry industry, Agriculture agriculture){
@@ -95,6 +97,7 @@ public class Game {
                 System.out.print("Satisfaction: "+satisfaction + "\n");
             if ( season%4 == 0 ){
                 System.out.println( String.format("Saison: %d",season) );
+                game = market.foodMart(game);
                 season = 0;
             }
             season += 1;

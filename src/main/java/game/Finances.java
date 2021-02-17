@@ -12,6 +12,9 @@ public class Finances {
     }
 
     public void setAmount(float amount) {
+        if( amount <= 0 ){
+            amount = 0;
+        }
         this.amount = amount;
     }
 }
