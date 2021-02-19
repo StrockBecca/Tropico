@@ -31,6 +31,7 @@ public class Agriculture extends Island {
                 game = addSupporters( game );
             }
         }
+        System.out.print("\n\n");
         return game;
     }
     public int getTotalSupporter( Game game ){

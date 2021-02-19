@@ -93,17 +93,14 @@ public class Game {
         while ( satisfaction > difficulty.getMinSatisfaction() ){
                 Event[] events = Event.getEventByDifficulty( difficulty, season );
                 game = president.doEvent( game, events, season );
-                satisfaction = getTotalSatisfaction(game);
                 System.out.print("Satisfaction: "+satisfaction + "\n");
             if ( season%4 == 0 ){
-                System.out.println( String.format( "Supporter avant: %d",game.getAgriculture().getTotalSupporter(game)));
-                System.out.println( String.format("Saison: %d",season) );
                 game = market.foodMart(game);
                 game = game.agriculture.checkAgriculture( game );
-                System.out.println( String.format( "Supporter après: %d",game.getAgriculture().getTotalSupporter(game)));
                 season = 0;
             }
             season += 1;
+            satisfaction = getTotalSatisfaction(game);
         }
     }
 

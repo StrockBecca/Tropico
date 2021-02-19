@@ -24,13 +24,14 @@ public class Market {
                     scanner.next();
                 }
                 if( units < 1 || units > game.getFinance().getAmount()/8 ){
-                    System.out.println( String.format( "Veuillez entrez un chiffre entre 1 et %d", (int)game.getFinance().getAmount()/8));
+                    System.out.println( String.format( "Veuillez entrez un chiffre entre 0 et %d", (int)game.getFinance().getAmount()/8));
                     units = 0;
                 }
             }
             game.getAgriculture().setSize(game.getAgriculture().getSize()+units);
             game.getFinance().setAmount((float) (game.getFinance().getAmount() - units*8));
         }
+        System.out.println(String.format("Vous disposez maintenant de %d unités et de %.2f€",(int)game.getAgriculture().getSize()*40,game.getFinance().getAmount() ));
         return game;
     }
 }
