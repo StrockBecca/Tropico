@@ -9,7 +9,8 @@ import java.util.Scanner;
 public class Market {
     private String[] choices = { "oui", "non" };
     private Scanner scanner = new Scanner( System.in );
-    public Game foodMart( Game game  ){
+
+    public void foodMart( Game game  ){
         MenuEvent menu = new MenuEvent( choices );
         System.out.println("Voulez vous acheter des unités de nourritures à 8€ l'unité ?\n");
         System.out.println(String.format("Vous disposez actuellement de %d unités et de %.2f€",(int)game.getAgriculture().getSize()*40,game.getFinance().getAmount() ));
@@ -32,6 +33,5 @@ public class Market {
             game.getFinance().setAmount((float) (game.getFinance().getAmount() - units*8));
         }
         System.out.println(String.format("Vous disposez maintenant de %d unités et de %.2f€",(int)game.getAgriculture().getSize()*40,game.getFinance().getAmount() ));
-        return game;
     }
 }

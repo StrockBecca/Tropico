@@ -1,6 +1,7 @@
 package game;
 
 import character.*;
+import events.Bribe;
 import events.Event;
 import island.Agriculture;
 import island.Industry;
@@ -93,15 +94,15 @@ public class Game {
         while ( satisfaction > difficulty.getMinSatisfaction() ){
                 Event[] events = Event.getEventByDifficulty( difficulty, season );
                 game = president.doEvent( game, events, season );
-                System.out.print("Satisfaction: "+satisfaction + "\n");
             if ( season%4 == 0 ){
-                game = market.foodMart(game);
-                game = game.agriculture.checkAgriculture( game );
+                president.endSeasonEvents( game );
                 season = 0;
             }
             season += 1;
             satisfaction = getTotalSatisfaction(game);
+            System.out.print("Satisfaction: "+satisfaction + "\n");
         }
+        System.out.print("\nGAME OVER\n");
     }
 
     public static float getTotalSatisfaction(Game game){

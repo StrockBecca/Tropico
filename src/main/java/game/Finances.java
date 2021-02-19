@@ -11,6 +11,7 @@ public class Finances {
         return amount;
     }
 
+
     public void setAmount(float amount) {
         if( amount <= 0 ){
             amount = 0;

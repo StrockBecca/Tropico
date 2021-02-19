@@ -1,14 +1,19 @@
 package character;
 
+import events.Bribe;
 import events.Event;
 import events.MenuEvent;
 import game.Game;
+import island.Market;
 
 import java.util.Random;
 import java.util.Scanner;
 
 public class President {
     private String[] choices = { "oui", "non" };
+    private String[] endSeasonChoices = {"Pot de vin","Marché alimentaire","Quitter"};
+    private Market market = new Market();
+    private Bribe bribe = new Bribe();
     private Scanner scanner;
 
     public void printSeason( int season ){
@@ -25,6 +30,7 @@ public class President {
             System.out.print("AUTOMNE\n");
         }
     }
+
     public Game doEvent( Game game, Event[] events, int season ){
         Random rand = new Random();
         MenuEvent displayEvent = new MenuEvent(choices);
@@ -48,5 +54,23 @@ public class President {
         }
         System.out.print("\n\n");
         return game;
+    }
+
+    public void endSeasonEvents( Game game ){
+        MenuEvent displayEndSeasonEvents = new MenuEvent( endSeasonChoices );
+        int choice = displayEndSeasonEvents.display( scanner );
+        switch ( choice ){
+            case 1:
+                bribe.callBribe( game );
+                endSeasonEvents( game );
+                break;
+            case 2:
+                market.foodMart( game );
+                endSeasonEvents( game );
+                break;
+            case 3:
+                game = game.getAgriculture().checkAgriculture( game );
+                break;
+        }
     }
 }
