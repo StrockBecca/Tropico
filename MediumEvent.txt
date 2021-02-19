@@ -1,8 +1,8 @@
 all|Confinement|Toute la population doit être confinée pour une durée indéterminée à cause du Covid.voulez-vous instaurer ce confinement ?|-25.0|0.0|0.0|-25.0|0.0|-25.0|0.0|-20.0|-25.0|-15.0|-15.0
 W|Gèle intense|Cette année, les températures ont énormément baissé causant un gèle intense. Voulez-vous laisser vos habitants sans chauffage ?|0.0|0.0|-15.0|0.0|0.0|0.0|0.0|0.0|-25.0|0.0|-20.0
 Su,Sp|Invasion d'insecte|L'île va être envahi par des insectes, faites attention aux récoltes. Voulez-vous laisser vos récoltes sans défense ?|-25.0|0.0|0.0|-25.0|0.0|-25.0|0.0|-20.0|-25.0|0.0|-15.0
-Su|Victoire coupe du monde|L'équipe représentant l'île à gagné la coupe du monde de foot! Il y a donc une grande fête pour célébrer. Voulez-vous organiser cette fête ?|10.0|0.0|0.0|0.0|15.0|0.0|0.0|0.0|25.0|10.0|0.0
-A|Rentré des classe|Il faut créer une nouvelle école pour que les enfants puissent être éduqué. Voulez-vous créer cette école ?|0.0|0.0|0.0|0.0|0.0|0.0|5.0|5.0|0.0|10.0|0.0
+Su|Victoire coupe du monde|L'équipe représentant l'île à gagné la coupe du monde de foot! Il y a donc une grande fête pour célébrer. Voulez-vous organiser cette fête ?|10.0|0.0|0.0|0.0|15.0|0.0|0.0|0.0|25.0|15.0|0.0
+A|Rentré des classe|Il faut créer une nouvelle école pour que les enfants puissent être éduqué. Voulez-vous créer cette école ?|0.0|0.0|0.0|0.0|0.0|0.0|5.0|5.0|10.0|10.0|0.0
 all|Concert sur l'île|Une nouvelle vague de concert est arrivé sur l'île. Voulez-vous accueillir ces concerts et donc financer de nouvelles constructions ?|0.0|5.0|0.0|0.0|5.0|0.0|0.0|0.0|15.0|5.0|0.0
 A,Sp|Nouvelle zone d'agriculture découverte|Vos habitants ont trouvé un nouvel endroit sur l'île pour faire des récoltes. Voulez-vous mettre cette partie de l'île en culture ?|0.0|10.0|0.0|0.0|0.0|-15.0|0.0|0.0|0.0|0.0|10.0
 W|Jeux d'hiver|L'aménagement de la montagne pour vos pistes de ski vous permettra d'y élever des moutons cet été. Voulez-vous aménager cet espace ?|0.0|5.0|0.0|0.0|10.0|5.0|0.0|0.0|0.0|0.0|5.0
